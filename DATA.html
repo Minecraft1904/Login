@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript">
+    window.onload = function(){
+      var xml = new XMLHttpRequest();
+      xml.open("GET", "login.json", true);
+      xml.onreadystatechange = function(){
+        if (xml.readyState == 4) {
+          var login = JSON.parse(xml.responseText);
+
+          var p = document.createElement("p");
+          p.innerHtml = login.Password;
+          p.innerHtml = login.Benutzer;
+
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(p);
+        }
+      }
+      xml.send(null);
+    };
+  </script>
+</head>
+<body>
+
+</body>
+</html>
